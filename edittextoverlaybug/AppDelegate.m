@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "taskViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    // Create a trItemsViewController
+    taskViewController *itemsViewController = [[taskViewController alloc] init];
+    // Create an instance of a UINavigationController
+    // its stack contains onlyitemsViewController
+    UINavigationController *navController = [[ UINavigationController alloc] initWithRootViewController:itemsViewController];
+    // Place navigation controller's view in the window hierarchy
+    self.window.rootViewController = navController;
+    return YES;
     return YES;
 }
 
